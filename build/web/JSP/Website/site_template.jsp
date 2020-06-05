@@ -29,7 +29,7 @@
                     <article id="content" class="span8">
                         <jsp:include page="modules/site_message.jsp" />
 
-                        <jsp:include page="site/dashboard.jsp" /> 
+                         
                     </article>
                 </div>
             </div>
