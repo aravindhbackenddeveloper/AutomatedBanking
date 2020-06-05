@@ -1,14 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.database.bank;
 
 /**
  *
  * @author Aravindh
  */
-public interface Provider {
+public interface Provider 
+{
+        String DRIVER="org.apache.derby.jdbc.ClientDriver";  
+        String CONNECTION_URL="jdbc:derby://localhost:1527/contact;create=true";  
+        String USERNAME="nbuser";  
+        String PASSWORD="nbuser";  
     
 }

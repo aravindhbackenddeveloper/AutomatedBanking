@@ -15,7 +15,6 @@ public class BankBranch
 {
     String branch_Name;
     String ifsc_code;
-    ArrayList<Account> accounts=new ArrayList<>();
 
     public String getBranch_Name() {
         return branch_Name;
@@ -33,13 +32,7 @@ public class BankBranch
         this.ifsc_code = ifsc_code;
     }
 
-    public ArrayList<Account> getAccounts() {
-        return accounts;
-    }
-
-    public void setAccounts(ArrayList<Account> accounts) {
-        this.accounts = accounts;
-    }
+    
     
     
 }

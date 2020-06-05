@@ -9,7 +9,8 @@ import java.util.ArrayList;
 public class Customer 
 {
     public String customerId;
-   String name;
+    String password;
+     String name;
     ArrayList<Account> accountList=new ArrayList<>();
     String address;
     long  phoneNumber;

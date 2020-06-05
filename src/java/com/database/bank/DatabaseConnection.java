@@ -1,14 +1,30 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.database.bank;
+
+import static com.database.bank.Provider.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 /**
  *
  * @author Aravindh
  */
-public class DatabaseConnection {
+public class DatabaseConnection 
+{
+    private static Connection con=null;  
+    public static Connection getCon() throws SQLException 
+     {  		  
+	
+        try 
+        {
+            Class.forName(DRIVER);
+            con=DriverManager.getConnection(CONNECTION_URL,USERNAME,PASSWORD); 
+        } 
+        catch (ClassNotFoundException e) 
+        {
+            
+        }  		    
+        return con;  
+     }  
     
 }

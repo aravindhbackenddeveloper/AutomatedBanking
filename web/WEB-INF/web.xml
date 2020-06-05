@@ -1,30 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+                                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                                        xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <welcome-file-list>
-        <welcome-file>JSP/index.html</welcome-file>
-        <welcome-file>JSP/Login_Signup/Login.html</welcome-file>
-         <welcome-file>JSP/Login_Signup/Signup.html</welcome-file>
-        <welcome-file></welcome-file>
+        
+             <welcome-file>JSP/Index/index.html</welcome-file>
+             <welcome-file>JSP/Login_Signup/Login.html</welcome-file>
+             <welcome-file>JSP/Login_Signup/Signup.html</welcome-file>
+             
+             <welcome-file>JSP/Website/admin/account_details.jsp</welcome-file> <welcome-file>JSP/Website/admin/account_edit.jsp</welcome-file>
+             <welcome-file>JSP/Website/admin/account_search.jsp</welcome-file> <welcome-file>JSP/Website/admin/account_transaction.jsp</welcome-file>
+             <welcome-file>JSP/Website/admin/bank_branch_edit.jsp</welcome-file> <welcome-file>JSP/Website/admin/bank_branch_list.jsp</welcome-file>
+             <welcome-file>JSP/Website/admin/customer_details.jsp</welcome-file> <welcome-file>JSP/Website/admin/customer_edit.jsp</welcome-file>
+             <welcome-file>JSP/Website/admin/customer_list.jsp</welcome-file> <welcome-file>JSP/Website/admin/customer_search.jsp</welcome-file>
+             <welcome-file>JSP/Website/admin/dashboard.jsp</welcome-file>
+             
+             <welcome-file>JSP/Website/modules/admin_footer.jsp</welcome-file><welcome-file>JSP/Website/modules/admin_footer.jsp</welcome-file>
+             <welcome-file>JSP/Website/modules/admin_message.jsp</welcome-file><welcome-file>JSP/Website/modules/admin_sidebar.jsp</welcome-file>
+             <welcome-file>JSP/Website/modules/site_footer.jsp</welcome-file><welcome-file>JSP/Website/modules/site_header.jsp</welcome-file>
+             <welcome-file>JSP/Website/modules/site_message.jsp</welcome-file><welcome-file>JSP/Website/modules/site_sidebar.jsp</welcome-file>
+             
+             <welcome-file>JSP/Website/site/bank_account_list.jsp</welcome-file><welcome-file>JSP/Website/site/dashboard.jsp</welcome-file>
+             <welcome-file>JSP/Website/site/deposit_fund.jsp</welcome-file><welcome-file>JSP/Website/site/history.jsp</welcome-file>
+             <welcome-file>JSP/Website/site/login.jsp</welcome-file><welcome-file>JSP/Website/site/profile.jsp</welcome-file>
+             <welcome-file>JSP/Website/site/show_balance.jsp</welcome-file><welcome-file>JSP/Website/site/transfer_fund.jsp</welcome-file>
+             <welcome-file>JSP/Website/site/withdraw_fund.jsp</welcome-file>
+             
+             <welcome-file>JSP/Website/admin_template.jsp</welcome-file> <welcome-file>JSP/Website/ajax.jsp</welcome-file>
+             <welcome-file>JSP/Website/error_404.jsp</welcome-file> <welcome-file>JSP/Website/site_template.jsp</welcome-file>
+             
     </welcome-file-list>
+    
     <servlet>
         <servlet-name>Login</servlet-name>
         <servlet-class>bank.controller.site.Login</servlet-class>
     </servlet>
+    
     <servlet>
         <servlet-name>Signup</servlet-name>
-        <servlet-class>Signup</servlet-class>
+        <servlet-class>bank.controller.site.Signup</servlet-class>
     </servlet>
+    
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
     </servlet-mapping>
+    
     <servlet-mapping>
         <servlet-name>Signup</servlet-name>
         <url-pattern>/Signup</url-pattern>
     </servlet-mapping>
+    
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
+    
 </web-app>
