@@ -1,46 +1,27 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<header id="header">
-    <a href="${page.url_host}${page.url_apppath}">
-        <table id="title-holder">
-            <tr>
-                <td>
-                    <div id="bank-logo">
-                        <object width="75px" height="64px"
-                                data="${page.url_assets}images/building.svg" type="image/svg+xml"></object>
-                    </div>
-                </td>
-                <td><h2>CICICI Bank</h2></td>
-            </tr>
-        </table>
-        <div id="signout-area">
-            <table id="title-holder">
-                <tr>
-                    <td><c:choose>
-                            <c:when test="${customer.gender != 'Male'}">
-                                <object width="20px" height="20px"
-                                        data="${page.url_assets}images/customer_female.svg"
-                                        type="image/svg+xml"></object>
-                            </c:when>
-                            <c:otherwise>
-                                <object width="20px" height="20px"
-                                        data="${page.url_assets}images/customer_male.svg"
-                                        type="image/svg+xml"></object>
-                            </c:otherwise>
-                        </c:choose></td>
-                    <td><b><a
-                                href="${page.url_host}${page.url_apppath}profile">&nbsp;${customer.givenname}</a></b></td>
-
-                    <td>&nbsp;&nbsp;</td>
-
-                    <td><object width="20px" height="20px"
-                                data="${page.url_assets}images/power_button.svg"
-                                type="image/svg+xml"></object></td>
-                    <td><a
-                            href="${page.url_host}${page.url_apppath}session/logout"><b>
-                                &nbsp;[Logout]</b></a></td>
-
-                </tr>
-            </table>
+<header class="navbar" id="header">
+    <div class="navbar-inner">
+        <div style="width: auto;" class="container">
+            <a data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar"> <span class="icon-bar"></span>
+                <span    class="icon-bar"></span> <span class="icon-bar"></span>
+            </a> 
+            <a href="http://localhost:8082/AutomatedBanking/" class="brand"><b>CICICI Bank</b></a>
+            <div class="nav-collapse">
+                <ul class="nav">
+                     <li ><a 
+                       href="http://localhost:8082/AutomatedBanking/JSP/Website/site/transfer_amount.jsp?customer_id=${customer_id}">
+                            <b>Transfer Amount </b><b class="caret"></b></a>
+                       </li>
+                   
+                </ul>
+               <ul class="nav pull-right">
+                    
+                    <li class="divider-vertical"></li>
+                     <li><a href="http://localhost:8082/AutomatedBanking/"><b>Logout</b></a></li>
+                </ul>
+            </div>
+            <!-- /.nav-collapse -->
         </div>
-    </a>
+    </div>
+
 </header>

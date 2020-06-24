@@ -1,49 +1,26 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <div id="dashboard">
-    <div class="row">
-        <a class="span4"">
-            <object width="80px" height="80px"  data="../resources/images/show_balance.svg"
-                                type="image/svg+xml"></object> <span class="dlink"><br />Details</span>
-        </a> <a
-            href="${page.url_host}${page.url_apppath}bank_account/deposit_fund"
-            class="span4"> <object width="80px" height="80px"
-                               data="../resources/images/deposit_money.svg"
-                               type="image/svg+xml"></object> <span class="dlink"><br />Deposit</span>
-        </a> <a
-            href="${page.url_host}${page.url_apppath}bank_account/withdraw_fund"
-            class="span4"> <object width="80px" height="80px"
-                               data="../resources/images/withdraw_money.svg"
-                               type="image/svg+xml"></object> <span class="dlink"><br />Withdraw</span>
-        </a>
-    </div>
-    <div class="row">
-        <a
-            href="${page.url_host}${page.url_apppath}bank_account/transfer_fund"
-            class="span4"> <object width="80px" height="80px"
-                               data="../resources/images/transfer_money.svg"
-                               type="image/svg+xml"></object> <span class="dlink"><br />Transfer
-                Cash</span>
-        </a> <a
-            href="${page.url_host}${page.url_apppath}bank_account/transfer_history"
-            class="span4"> <object width="80px" height="80px"
-                               data="../resources/images/transaction_history.svg"
-                               type="image/svg+xml"></object> <span class="dlink"><br />Transaction
-                History</span>
-        </a> <a href="${page.url_host}${page.url_apppath}profile" class="span4">
-            <c:choose>
-                <c:when test="${customer.gender != 'Male'}">
-                    <object width="80px" height="80px"
-                            data="../resources/images/customer_female.svg"
-                            type="image/svg+xml"></object>
-                </c:when>
-                <c:otherwise>
-                    <object width="80px" height="80px"
-                            data="../resources/images/customer_male.svg"
-                            type="image/svg+xml"></object>
-                </c:otherwise>
-            </c:choose> <span class="dlink"><br />My Information</span>
-        </a>
+    <h3>${Message}</h3>
+	<div class="row">
+		<a  class="span4"> <img class="img-circle"
+			src="JSP/Website/resources/images/new_file.png" style="width: 120px;" />
+			<br />
+		<h5>New Bank Account</h5>
+		</a> <a class="span4" > <img class="img-circle"
+			src="JSP/Website/resources/images/new_file.png" style="width: 120px;" />
+			<br />
+                                <h5 >New Deposit Account</h5>
+		</a>
+	</div>
+	<div class="row">
+		<a  class="span4"> <img src="JSP/Website/resources/images/new_file.png"
+			style="width: 80px;" /> <br />
+		<h5>New Loan Account</h5>
+		</a> <a class="span4"> <img src="JSP/Website/resources/images/search.png"
+			style="width: 80px;" /> <br />
+		<h5>Account Details</h5>
+		</a>
 
-    </div>
+	</div>
 </div>

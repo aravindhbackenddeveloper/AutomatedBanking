@@ -3,12 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/Application_Project/AutomatedBanking/web/JSP/Login_SignUp/Login.html</file>
-            <file>file:/E:/Application_Project/AutomatedBanking/src/java/com/database/bank/RegisterData.java</file>
-            <file>file:/E:/Application_Project/AutomatedBanking/web/WEB-INF/web.xml</file>
-            <file>file:/E:/Application_Project/AutomatedBanking/src/java/bank/controller/site/Signup.java</file>
-            <file>file:/E:/Application_Project/AutomatedBanking/web/JSP/index.html</file>
-            <file>file:/E:/Application_Project/AutomatedBanking/web/JSP/Login_SignUp/Signup.html</file>
+            <file>file:/E:/Application_Project/AutomatedBanking/src/java/bank/controller/site/Edit_Branch.java</file>
+            <file>file:/E:/Application_Project/AutomatedBanking/web/JSP/Website/admin/account_edit.jsp</file>
+            <file>file:/E:/Application_Project/AutomatedBanking/web/JSP/Website/admin/bank_branch_edit.jsp</file>
         </group>
     </open-files>
 </project-private>

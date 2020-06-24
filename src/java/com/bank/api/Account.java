@@ -1,20 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.bank.api;
+import java.util.Date;
+import com.bank.api.Customer;
 
-/**
- *
- * @author Aravindh
- */
 public class Account 
 {
-   String accountnumber;
-   BankBranch branchDetails;
-   String accountType;
-   double accountBalance;
+    
+   public String          accountnumber;
+   public BankBranch branchDetails = new BankBranch();
+   public String          accountType;
+   public double        accountBalance;
+   public String          pin;
+   public Date            doj;
+   public Customer customer =new Customer();
+   public boolean status ;
 
     public String getAccountnumber() {
         return accountnumber;
@@ -47,6 +45,33 @@ public class Account
     public void setAccountBalance(double accountBalance) {
         this.accountBalance = accountBalance;
     }
-   
-   
+
+    public String getPin() {
+        return pin;
+    }
+
+    public void setPin(String pin) {
+        this.pin = pin;
+    }
+
+    public Date getDoj() {
+        return doj;
+    }
+
+    public void setDoj(Date doj) {
+        this.doj = doj;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+    
+    public void generateAccountNumber( int count )
+    {
+        this.accountnumber = "CICICI-ACC-"+String.valueOf (count+1);
+    }
 }

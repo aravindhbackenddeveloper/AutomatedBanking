@@ -1,61 +1,214 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-                                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-                                        xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <welcome-file-list>
-        
-             <welcome-file>JSP/Index/index.html</welcome-file>
-             <welcome-file>JSP/Login_Signup/Login.html</welcome-file>
-             <welcome-file>JSP/Login_Signup/Signup.html</welcome-file>
-             
-             <welcome-file>JSP/Website/admin/account_details.jsp</welcome-file> <welcome-file>JSP/Website/admin/account_edit.jsp</welcome-file>
-             <welcome-file>JSP/Website/admin/account_search.jsp</welcome-file> <welcome-file>JSP/Website/admin/account_transaction.jsp</welcome-file>
-             <welcome-file>JSP/Website/admin/bank_branch_edit.jsp</welcome-file> <welcome-file>JSP/Website/admin/bank_branch_list.jsp</welcome-file>
-             <welcome-file>JSP/Website/admin/customer_details.jsp</welcome-file> <welcome-file>JSP/Website/admin/customer_edit.jsp</welcome-file>
-             <welcome-file>JSP/Website/admin/customer_list.jsp</welcome-file> <welcome-file>JSP/Website/admin/customer_search.jsp</welcome-file>
-             <welcome-file>JSP/Website/admin/dashboard.jsp</welcome-file>
-             
-             <welcome-file>JSP/Website/modules/admin_footer.jsp</welcome-file><welcome-file>JSP/Website/modules/admin_footer.jsp</welcome-file>
-             <welcome-file>JSP/Website/modules/admin_message.jsp</welcome-file><welcome-file>JSP/Website/modules/admin_sidebar.jsp</welcome-file>
-             <welcome-file>JSP/Website/modules/site_footer.jsp</welcome-file><welcome-file>JSP/Website/modules/site_header.jsp</welcome-file>
-             <welcome-file>JSP/Website/modules/site_message.jsp</welcome-file><welcome-file>JSP/Website/modules/site_sidebar.jsp</welcome-file>
-             
-             <welcome-file>JSP/Website/site/bank_account_list.jsp</welcome-file><welcome-file>JSP/Website/site/dashboard.jsp</welcome-file>
-             <welcome-file>JSP/Website/site/deposit_fund.jsp</welcome-file><welcome-file>JSP/Website/site/history.jsp</welcome-file>
-             <welcome-file>JSP/Website/site/login.jsp</welcome-file><welcome-file>JSP/Website/site/profile.jsp</welcome-file>
-             <welcome-file>JSP/Website/site/show_balance.jsp</welcome-file><welcome-file>JSP/Website/site/transfer_fund.jsp</welcome-file>
-             <welcome-file>JSP/Website/site/withdraw_fund.jsp</welcome-file>
-             
-             <welcome-file>JSP/Website/admin_template.jsp</welcome-file> <welcome-file>JSP/Website/ajax.jsp</welcome-file>
-             <welcome-file>JSP/Website/error_404.jsp</welcome-file> <welcome-file>JSP/Website/site_template.jsp</welcome-file>
-             
+        <welcome-file>JSP/Index/index.html</welcome-file>
+        <welcome-file>JSP/Login_Signup/Login.jsp</welcome-file>
+        <welcome-file>JSP/Login_Signup/Signup.jsp</welcome-file>
+        <welcome-file>JSP/Website/admin/account_details.jsp</welcome-file>
+        <welcome-file>JSP/Website/admin/account_edit.jsp</welcome-file>
+        <welcome-file>JSP/Website/admin/account_search.jsp</welcome-file>
+        <welcome-file>JSP/Website/admin/account_transaction.jsp</welcome-file>
+        <welcome-file>JSP/Website/admin/bank_branch_edit.jsp</welcome-file>
+        <welcome-file>JSP/Website/admin/bank_branch_list.jsp</welcome-file>
+        <welcome-file>JSP/Website/admin/customer_details.jsp</welcome-file>
+        <welcome-file>JSP/Website/admin/customer_edit.jsp</welcome-file>
+        <welcome-file>JSP/Website/admin/customer_list.jsp</welcome-file>
+        <welcome-file>JSP/Website/admin/customer_search.jsp</welcome-file>
+        <welcome-file>JSP/Website/admin/dashboard.jsp</welcome-file>
+        <welcome-file>JSP/Website/admin/add_branch.jsp</welcome-file>
+        <welcome-file>JSP/Website/modules/admin_footer.jsp</welcome-file>
+        <welcome-file>JSP/Website/modules/admin_footer.jsp</welcome-file>
+        <welcome-file>JSP/Website/modules/admin_message.jsp</welcome-file>
+        <welcome-file>JSP/Website/modules/admin_sidebar.jsp</welcome-file>
+        <welcome-file>JSP/Website/modules/site_footer.jsp</welcome-file>
+        <welcome-file>JSP/Website/modules/site_header.jsp</welcome-file>
+        <welcome-file>JSP/Website/modules/site_message.jsp</welcome-file>
+        <welcome-file>JSP/Website/modules/site_sidebar.jsp</welcome-file>
+        <welcome-file>JSP/Website/site/bank_account_list.jsp</welcome-file>
+        <welcome-file>JSP/Website/site/dashboard.jsp</welcome-file>
+        <welcome-file>JSP/Website/site/deposit_fund.jsp</welcome-file>
+        <welcome-file>JSP/Website/site/history.jsp</welcome-file>
+        <welcome-file>JSP/Website/site/login.jsp</welcome-file>
+        <welcome-file>JSP/Website/site/profile.jsp</welcome-file>
+        <welcome-file>JSP/Website/site/show_balance.jsp</welcome-file>
+        <welcome-file>JSP/Website/site/transfer_fund.jsp</welcome-file>
+        <welcome-file>JSP/Website/site/withdraw_fund.jsp</welcome-file>
+        <welcome-file>JSP/Website/admin_template.jsp</welcome-file>
+        <welcome-file>JSP/Website/ajax.jsp</welcome-file>
+        <welcome-file>JSP/Website/error_404.jsp</welcome-file>
+        <welcome-file>JSP/Website/site_template.jsp</welcome-file>
     </welcome-file-list>
-    
     <servlet>
         <servlet-name>Login</servlet-name>
         <servlet-class>bank.controller.site.Login</servlet-class>
     </servlet>
-    
     <servlet>
         <servlet-name>Signup</servlet-name>
         <servlet-class>bank.controller.site.Signup</servlet-class>
     </servlet>
-    
+    <servlet>
+        <servlet-name>Customer_list</servlet-name>
+        <servlet-class>bank.controller.site.Customer_list</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Account_list</servlet-name>
+        <servlet-class>bank.controller.site.Account_list</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Loan_Applications</servlet-name>
+        <servlet-class>bank.controller.site.Loan_Applications</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Deposit_Applications</servlet-name>
+        <servlet-class>bank.controller.site.Deposit_Applications</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Account_Applications</servlet-name>
+        <servlet-class>bank.controller.site.Account_Applications</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>addbranch</servlet-name>
+        <servlet-class>bank.controller.site.addbranch</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Edit_Branch</servlet-name>
+        <servlet-class>bank.controller.site.Edit_Branch</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Create_Account</servlet-name>
+        <servlet-class>bank.controller.site.Create_Account</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>edit_account</servlet-name>
+        <servlet-class>bank.controller.site.edit_account</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SearchAccount</servlet-name>
+        <servlet-class>bank.controller.site.SearchAccount</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SearchCustomer</servlet-name>
+        <servlet-class>bank.controller.site.SearchCustomer</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>edit_account_site</servlet-name>
+        <servlet-class>bank.controller.site.edit_account_site</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>approve_account</servlet-name>
+        <servlet-class>bank.controller.site.approve_account</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>deny_account_request</servlet-name>
+        <servlet-class>bank.controller.site.deny_account_request</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>approve_deposit</servlet-name>
+        <servlet-class>bank.controller.site.approve_deposit</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>deny_deposit</servlet-name>
+        <servlet-class>bank.controller.site.deny_deposit</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>approve_loan</servlet-name>
+        <servlet-class>bank.controller.site.approve_loan</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>deny_loan</servlet-name>
+        <servlet-class>bank.controller.site.deny_loan</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>amont_transfer</servlet-name>
+        <servlet-class>bank.controller.site.amont_transfer</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
     </servlet-mapping>
-    
     <servlet-mapping>
         <servlet-name>Signup</servlet-name>
         <url-pattern>/Signup</url-pattern>
     </servlet-mapping>
-    
+    <servlet-mapping>
+        <servlet-name>Customer_list</servlet-name>
+        <url-pattern>/Customer_list</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Account_list</servlet-name>
+        <url-pattern>/Account_list</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Loan_Applications</servlet-name>
+        <url-pattern>/Loan_Applications</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Deposit_Applications</servlet-name>
+        <url-pattern>/Deposit_Applications</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Account_Applications</servlet-name>
+        <url-pattern>/Account_Applications</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>addbranch</servlet-name>
+        <url-pattern>/addbranch</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Edit_Branch</servlet-name>
+        <url-pattern>/Edit_Branch</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Create_Account</servlet-name>
+        <url-pattern>/Create_Account</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>edit_account</servlet-name>
+        <url-pattern>/edit_account</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchAccount</servlet-name>
+        <url-pattern>/SearchAccount</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchCustomer</servlet-name>
+        <url-pattern>/SearchCustomer</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>edit_account_site</servlet-name>
+        <url-pattern>/edit_account_site</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>approve_account</servlet-name>
+        <url-pattern>/approve_account</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>deny_account_request</servlet-name>
+        <url-pattern>/deny_account_request</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>approve_deposit</servlet-name>
+        <url-pattern>/approve_deposit</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>deny_deposit</servlet-name>
+        <url-pattern>/deny_deposit</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>approve_loan</servlet-name>
+        <url-pattern>/approve_loan</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>deny_loan</servlet-name>
+        <url-pattern>/deny_loan</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>amont_transfer</servlet-name>
+        <url-pattern>/amont_transfer</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
-    
 </web-app>

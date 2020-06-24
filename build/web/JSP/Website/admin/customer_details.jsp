@@ -1,93 +1,108 @@
+<%@page import="com.database.bank.RegisterData"%>
+<%@page import="com.bank.api.Customers"%>
+<%@page import="com.bank.api.Accounts"%>
+<%@page import="com.bank.api.Customer"%>
+<%@page import="com.bank.api.Account"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<h3>
-	Detail Information of ${data.givenname} &nbsp;&nbsp;&nbsp;<a
-		href="${page.url_host}${page.url_apppath}admin/customer/edit/${data.customer_id}"
-		style="margin-top: 15px;" class="pull-right btn btn-small btn-info">Edit
-		Details</a>
-</h3>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><c:out value="${page.page_title}" /></title>
+        <link rel="shortcut icon" href="../resources/images/molecue.png"
+              type="image/x-icon" />
+        <link href="../resources/css/jquery-ui-1.10.3.min.css"
+              rel="stylesheet" media="screen" />
+        <link href="../resources/css/flaty.bootstrap.min.css"
+              rel="stylesheet" media="screen" />
+        <link href="../resources/css/application_admin.css"
+              rel="stylesheet" media="screen" />
 
-<table class="table">
-	<tr>
-		<td>Customer ID</td>
-		<td>${data.customer_id}</td>
-	</tr>
-	<tr>
-		<td>NRIC Number</td>
-		<td>${data.nric}</td>
-	</tr>
-	<tr>
-		<td>Username</td>
-		<td>${data.username}</td>
-	</tr>
-	<tr>
-		<td>Given Name</td>
-		<td>${data.givenname}</td>
-	</tr>
-	<tr>
-		<td>Address</td>
-		<td>${data.address}</td>
-	</tr>
-	<tr>
-		<td>Gender</td>
-		<td>${data.gender}</td>
-	</tr>
-	<tr>
-		<td>Nationality</td>
-		<td>${data.nationality}
-	</tr>
-	<tr>
-		<td>Date of Birth</td>
-		<td>
-		<fmt:formatDate value="${data.date_of_birth}" pattern="MM/d/yyyy" />
-		</td>
-	</tr>
-	<tr>
-		<td>Date of Join</td>
-		<td><fmt:formatDate value="${data.date_of_join}" pattern="MM/d/yyyy" /></td>
-	</tr>
-</table>
-<c:if test="${not empty data.accounts}">
-	<h3>Bank Accounts Owned by Customer</h3>
-	<table class="table table-hover">
-		<thead>
-			<tr>
-				<td>Account ID</td>
-				<td>Balance</td>
-				<td>Account Type</td>
-				<td>Ownership</td>
-				<td></td>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach items="${data.accounts}" var="_account">
-				<tr>
-					<td>${_account.account_id}</td>
-					<td><fmt:formatNumber value="${_account.amount}" type="currency"/></td>
-					<td><c:choose>
-							<c:when test="${_account.account_type == 1 }">Checking Account </c:when>
-							<c:when test="${_account.account_type == 2 }">Saving Account </c:when>
-							<c:otherwise> Undefined </c:otherwise>
-						</c:choose></td>
-					<td><c:choose>
-							<c:when test="${_account.joint_account == false }">Single Account</c:when>
-							<c:otherwise> Joint Account </c:otherwise>
-						</c:choose> <c:if test="${_account.joint_account == true }">
-							<br />
-							<u>Owners</u>
-							<ul>
-								<c:forEach items="${_account.customers}" var="_customer">
-									<li><a
-										href="${page.url_host}${page.url_apppath}admin/customer/details/${_customer.customer_id}">${_customer.givenname}</a></li>
-								</c:forEach>
-							</ul>
-						</c:if></td>
-					<td><a
-						href="${page.url_host}${page.url_apppath}admin/account/details/${_account.account_id}"
-						class="btn btn-small">View Details</a></td>
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
-</c:if>
+        <script src="../resources/js/jquery-1.10.1.js"></script>
+        <script src="../resources/js/jquery-ui-1.10.3.js"></script>
+        <script src="../resources/js/bootstrap.js"></script>
+        <script src="../resources/js/application.js"></script>
+    </head>
+    <body>
+         <%
+              String customer_id = (String)  request.getParameter("id");
+              
+              Account account ;  Customer  customer;
+              Accounts accounts =  new Accounts(); Customers customers = new Customers();
+              
+              accounts.getAccountList( RegisterData.getAccount() ); 
+              customers.getCustomerList( RegisterData.getCustomer() );
+              
+              customer = customers.getCustomerWithID(customer_id);
+              account = accounts.getAccountWithID(customer_id);
+              
+             request.setAttribute ("cust",customer    );  
+             request.setAttribute ("acc",account        );
+             request.setAttribute ("idd",customer_id);
+        %>
+        <div id="page_container">
+            <jsp:include page="../modules/admin_header.jsp" />
+            <div id="body" class="container-fuid">
+                <jsp:include page="../modules/admin_sidebar.jsp" />
+                <article id="content" class="span9">
+                    <jsp:include page="../modules/admin_message.jsp" />
+
+                    <h3>
+                        Detail Information of ${cust.customerId} &nbsp;&nbsp;&nbsp;<a
+                            href="account_edit.jsp?id=${cust.customerId}"
+                            style="margin-top: 15px;" class="pull-right btn btn-small btn-info">Edit
+                            Details</a>
+                            <a href="account_transaction.jsp?id=${cust.customerId}"
+                            style="margin-top: 15px;" class="pull-right btn btn-small btn-info">View Transactions</a>
+                           <br/>
+                    </h3>
+
+                    <table class="table">
+                        
+                        <tr>
+                            <td>Account Number</td>
+                            <td>${acc.accountnumber}</td>
+                        </tr>
+                        <tr>
+                            <td>Name</td>
+                            <td>${cust.name}</td>
+                        </tr>
+                        <tr>
+                            <td>E-mail</td>
+                            <td>${cust.email}</td>
+                        </tr>
+                        <tr>
+                            <td>Address</td>
+                            <td>${cust.address}</td>
+                        </tr>
+                        <tr>
+                            <td>Gender</td>
+                            <td>${cust.gender}</td>
+                        </tr>
+                        <tr>
+                            <td>Nationality</td>
+                            <td>${cust.nationality}</td>
+                        </tr>
+                        <tr>
+                            <td>Date of Joining</td>
+                            <td>
+                                ${acc.doj}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Date of Birth</td>
+                            <td>${cust.dob}</td>
+                        </tr>
+                    </table>
+                  
+
+                </article>
+            </div>
+            <div class="clear"></div>
+            <jsp:include page="../modules/admin_footer.jsp" />
+        </div>
+    </body>
+</html>
+
+

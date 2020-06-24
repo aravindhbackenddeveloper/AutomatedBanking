@@ -5,66 +5,59 @@
             <a data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar"> <span class="icon-bar"></span>
                 <span    class="icon-bar"></span> <span class="icon-bar"></span>
             </a> 
-            <a href="#" class="brand">CICICI Bank</a>
+            <a href="http://localhost:8082/AutomatedBanking/" class="brand"><b>CICICI Bank</b></a>
             <div class="nav-collapse">
                 <ul class="nav">
-                    <li><a href="../admin/dashboard">Dashboard</a></li>
+                    
                     <li class="dropdown"><a data-toggle="dropdown"
-                                            class="dropdown-toggle" href="#">Customer <b class="caret"></b></a>
+                                            class="dropdown-toggle" href="#"><b>Customer </b><b class="caret"></b></a>
                         <ul class="dropdown-menu">
+                            
                             <li><a
-                                    href="${page.url_host}${page.url_apppath}admin/customer/list">Customer
-                                    List</a></li>
+                                    href="http://localhost:8082/AutomatedBanking/JSP/Website/admin/customer_list.jsp"><b>Customer
+                                        List</b></a></li>
                             <li><a
-                                    href="${page.url_host}${page.url_apppath}admin/customer/new">Create
-                                    New Customer</a></li>
+                                    href="${page.url_host}${page.url_apppath}admin/customer/new"><b>Create
+                                        New Customer</b></a></li>
                             <li><a
-                                    href="${page.url_host}${page.url_apppath}admin/customer/search">Search
-                                    Customer</a></li>
+                                    href="http://localhost:8082/AutomatedBanking/JSP/Website/admin/customer_search.jsp"><b>Search
+                                        Customer</b></a></li>
                         </ul></li>
                     <li class="dropdown"><a data-toggle="dropdown"
-                                            class="dropdown-toggle" href="#">Banking Account<b
+                                            class="dropdown-toggle" href="#"><b>Banking Account</b><b
                                 class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a
-                                    href="${page.url_host}${page.url_apppath}admin/account/new">Create
-                                    New Account</a></li>
+                                    href="http://localhost:8082/AutomatedBanking/JSP/Website/admin/create_account.jsp"><b>Create
+                                        New Account</b></a></li>
                             <li><a
-                                    href="${page.url_host}${page.url_apppath}admin/account/search">Search
-                                    Account</a></li>
+                                    href="http://localhost:8082/AutomatedBanking/JSP/Website/admin/account_search.jsp"><b>Search
+                                        Account</b></a></li>
                         </ul></li>
+                        
                     <li class="dropdown"><a data-toggle="dropdown"
-                                            class="dropdown-toggle" href="#">Bank Branch<b class="caret"></b></a>
+                                            class="dropdown-toggle" href="#"><b>Bank Branch</b><b class="caret"></b></a>
                         <ul class="dropdown-menu">
+                            
                             <li><a
-                                    href="${page.url_host}${page.url_apppath}admin/bank_branch/list">Bank
-                                    Branch List</a></li>
-                            <li><a
-                                    href="${page.url_host}${page.url_apppath}admin/bank_branch/new">Add
-                                    New Bank Branch</a></li>
+                                    href="http://localhost:8082/AutomatedBanking/JSP/Website/admin/add_branch.jsp"><b>Add
+                                        New Bank Branch</b></a></li>
                         </ul></li>
                 </ul>
                 <ul class="nav pull-right">
-                    <form
-                        action="${page.url_host}${page.url_apppath}admin/post/search_account"
-                        method="post" class="navbar-search pull-left">
-                        <input name="account_id" type="text"
-                               placeholder="Search Bank Account" style="width: 200px;"
-                               class="search-query span2">
-                    </form>
+                    
                     <li class="divider-vertical"></li>
                     <li class="dropdown"><a data-toggle="dropdown"
-                                            class="dropdown-toggle" href="#">Administrator <b
+                                            class="dropdown-toggle" href="#"><b>Administrator </b><b
                                 class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Settings</a></li>
                             <li class="divider"></li>
-                            <li><a href="#">Logout</a></li>
+                            <li><a href="http://localhost:8082/AutomatedBanking/"><b>Logout</b></a></li>
                         </ul></li>
                 </ul>
             </div>
             <!-- /.nav-collapse -->
         </div>
     </div>
-   
+
 </header>

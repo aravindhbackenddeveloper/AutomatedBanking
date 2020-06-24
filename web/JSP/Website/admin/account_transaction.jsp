@@ -1,41 +1,109 @@
+<%-- 
+    Document   : account_transaction
+    Created on : Jun 14, 2020, 12:30:12 AM
+    Author     : Aravindh
+--%>
+
+<%@page import="com.bank.api.Transaction"%>
+<%@page import="com.bank.api.Transactions"%>
+<%@page import="com.bank.api.Deposit"%>
+<%@page import="com.bank.api.Deposits"%>
+<%@page import="com.database.bank.RegisterData"%>
+<%@page import="com.bank.api.BankBranches"%>
+<%@page import="com.bank.api.BankBranches"%>
+<%@page import="com.bank.api.BankBranch"%>
+<%@page import="java.util.ArrayList"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=US-ASCII"
+         pageEncoding="US-ASCII"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page import="com.database.bank.RegisterData"%>
+<%@page import="com.bank.api.Customers"%>
+<%@page import="com.bank.api.Accounts"%>
+<%@page import="com.bank.api.Customer"%>
+<%@page import="com.bank.api.Account"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<h4>Transaction History Showing for Account Id -
-	${account_id}</h4>
-<table class="table table-hover table table-striped">
-	<thead>
-		<tr>
-			<td>Transaction Time</td>
-			<td>Amount</td>
-			<td>Type</td>
-		</tr>
-	</thead>
-	<tbody>
-		<c:forEach items="${data}" var="history">
-			<tr>
-				<td><fmt:formatDate value="${history.transaction_time}" pattern="MM/d/yyyy - hh:mm" /></td>
-				<td><fmt:formatNumber value="${history.transaction_amount}" type="currency"/></td>
-				<td><c:choose>
-						<c:when test="${history.transaction_type == 1}">
-							Deposit
-						</c:when>
-						<c:when test="${history.transaction_type == 2}">
-							Withdraw
-						</c:when>
-						<c:when test="${history.transaction_type == 3}">
-							<c:choose>
-								<c:when test="${history.transaction_relation_type == 1}">
-									Sent to Account ID - ${history.transaction_relation_account_id}
-								</c:when>
-								<c:when test="${history.transaction_relation_type == 2}">
-									Receive from Account ID - ${history.transaction_relation_account_id}
-								</c:when>
-								<c:otherwise>&nbsp;</c:otherwise>
-							</c:choose>
-						</c:when>
-						<c:otherwise>Unknown Transaction</c:otherwise>
-					</c:choose></td>
-			</tr>
-		</c:forEach>
-	</tbody>
-</table>
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Account Transaction</title>
+        <link rel="shortcut icon" href="../resources/images/molecue.png"
+              type="image/x-icon" />
+        <link href="../resources/css/jquery-ui-1.10.3.min.css"
+              rel="stylesheet" media="screen" />
+        <link href="../resources/css/flaty.bootstrap.min.css"
+              rel="stylesheet" media="screen" />
+        <link href="../resources/css/application_admin.css"
+              rel="stylesheet" media="screen" />
+
+        <script src="../resources/js/jquery-1.10.1.js"></script>
+        <script src="../resources/js/jquery-ui-1.10.3.js"></script>
+        <script src="../resources/js/bootstrap.js"></script>
+        <script src="../resources/js/application.js"></script>
+    </head>
+    <body>
+         <%
+               String customer_id = (String)  request.getParameter("id");
+              
+              Account account ;  Customer  customer;
+              Accounts accounts =  new Accounts(); Customers customers = new Customers();
+              
+              accounts.getAccountList( RegisterData.getAccount() ); 
+              customers.getCustomerList( RegisterData.getCustomer() );
+              
+              customer = customers.getCustomerWithID(customer_id);
+              account = accounts.getAccountWithID(customer_id);
+              
+               Deposits dps = new Deposits ();
+             dps.getDepositList( RegisterData.getDeposit() );
+             Deposit dp = dps.getDepositWithID(customer_id);
+              request.setAttribute ("dp",dp );
+             Transactions trs = new Transactions();
+             
+             trs.getTransaction( RegisterData.getTransaction() );
+             ArrayList<Transaction> trsList = trs.getCustomerTransaction( account.accountnumber );
+             request.setAttribute ("cust",customer    );  
+             request.setAttribute ("acc",account        );
+             request.setAttribute ("idd",customer_id );
+              request.setAttribute ("customer_id",customer_id );
+              request.setAttribute ( "trsList" ,trsList );
+              
+        %>
+        <div id="page_container">
+            <jsp:include page="../modules/admin_header.jsp" />
+            <div id="body" class="container-fuid">
+                <jsp:include page="../modules/admin_sidebar.jsp" />
+                <article id="content" class="span9">
+                    <jsp:include page="../modules/admin_message.jsp" />
+
+                     <h3>Transaction List</h3>
+                    <table class="table">
+                        <thead>
+                        <th>From Account</th>
+                        <th>To Account</th>
+                        <th>Date</th>
+                        <th>Amount</th>
+                        </thead>
+                        <tbody>
+                            <c:forEach items="${trsList}" var="trs">
+                                <tr>
+                                    <td>${trs.getFromAcc()}</td>
+                                    <td>${trs.getToAcc()}</td>
+                                    <td>${trs.getTransactionDate()}</td>
+                                    <td>${trs.getAmount()}</td>
+                                    
+                                </tr>
+                            </c:forEach>
+                        </tbody>
+                    </table>
+
+
+                </article>
+            </div>
+            <div class="clear"></div>
+            <jsp:include page="../modules/admin_footer.jsp" />
+        </div>
+    </body>
+</html>
